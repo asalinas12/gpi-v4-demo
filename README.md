@@ -2,7 +2,7 @@
 
 Make calls to SWIFT APIs is easy using SWIFT SDK. All you need to do is add the SWIFT SDKs as dependency when building your Java application through Maven or Gradle.
 
-We built this demo Java application with Maven to show you how we are using it to make calls to SWIFT gpi APIs in the [API Sandbox](https://developer.swift.com/reference#sandbox-overview).
+We built this demo Java application with Maven to show you how we are using it to make calls to SWIFT gpi APIs in the [API Sandbox](https://developer.swift.com/reference#gsg).
 
 
 ## Getting Started ##
@@ -23,7 +23,9 @@ $ install.sh
 
 ### Configure runtime SDK propertise ###
 
-Update ```config/config-swift-sdk.yaml``` with your application credentials, consumer-key & consumer-secret. Obtain from SWIFT Developer Portal by [creating an app](https://developer.swift.com/reference#sandbox-getting-started).
+Update ```config/config-swift-connect.yaml``` with your application credentials, consumer-key & consumer-secret. Obtain from SWIFT Developer Portal by [creating an app](https://developer.swift.com/reference#sandbox-getting-started).
+
+To use forward proxies update ```config/config-swift-connect-fp.yaml``` with your application credentials, consumer-key & consumer-secret and forward proxy information. Obtain from SWIFT Developer Portal by [creating an app](https://developer.swift.com/reference#sandbox-getting-started).
 
 ### Build ###
 
@@ -34,8 +36,14 @@ $ mvn clean install
 ### Run ###
 
 ```
-$ java -Dlog4j.configuration=file:config/log4j.properties -jar target/gpi-v4-demo-1.0.0-SNAPSHOT-jar-with-dependencies.jar config/config-swift-sdk.yaml
+$ java -Dlog4j.configuration=file:config/log4j.properties -jar target/gpi-v4-demo-1.0.0-SNAPSHOT-jar-with-dependencies.jar config/config-swift-connect.yaml
+
+```
+To use forward proxies:
+```
+$ java -Dlog4j.configuration=file:config/log4j.properties -jar target/gpi-v4-demo-1.0.0-SNAPSHOT-jar-with-dependencies.jar config/config-swift-connect-fp.yaml
 
 ```
 ## Authors
 alex.salinas@swift.com
+vijay.mukundhan@swift.com
